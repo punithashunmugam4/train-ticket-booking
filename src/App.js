@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
 import Seats from './components/seats';
 
 function App() {
@@ -30,12 +31,15 @@ function App() {
   }
   return (
     <div className="App">
+      <Navbar/>
+      <div className='container'>
       <form>
         <label htmlFor='seats-needed'>Number of seats needed: </label>
         <input name='seats-neaded' type='number' max='7' onChange={(e)=>setSeatCount(e.target.value)}></input>
         <button type='submit' onClick={(e)=>handleSubmit(e)}>Submit</button>
       </form>
       { booked && <Seats seats={seats} filled={filled}/>}
+    </div>
     </div>
   );
 }
